@@ -81,11 +81,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 219);
+            this.ClientSize = new System.Drawing.Size(538, 215);
             this.Controls.Add(this.cboDifficulty);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(558, 258);
