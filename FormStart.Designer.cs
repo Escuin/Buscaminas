@@ -92,6 +92,7 @@
             this.MaximumSize = new System.Drawing.Size(558, 258);
             this.MinimumSize = new System.Drawing.Size(558, 258);
             this.Name = "FormStart";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscaminas";
             this.ResumeLayout(false);
             this.PerformLayout();

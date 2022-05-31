@@ -29,10 +29,12 @@ namespace Buscaminas
             switch (difficulty)
             {
                 case "Modo fácil":
+
                     int width = 30;
                     int height = 30;
                     int x = 5;
                     int y = 5;
+
                     int[] b = new int[16];
 
                     foreach (var v in b)
@@ -49,6 +51,7 @@ namespace Buscaminas
                         x = 5;
                         y += 30;
                     }
+
                     break;
                 case "Modo intermedio":
                     break;
