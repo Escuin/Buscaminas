@@ -12,7 +12,7 @@ namespace Buscaminas
             switch (cboDifficulty.Text)
             {
                 case "Modo fácil":
-                    var frm = new FormEasyMode();
+                    var frm = new FormGame();
                     frm.Show();
                     break;
                 case "Modo intermedio":
