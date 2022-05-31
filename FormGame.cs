@@ -37,6 +37,7 @@ namespace Buscaminas
 
                     int[] b = new int[16];
 
+                    List<Button> botones = new List<Button>();
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -46,6 +47,7 @@ namespace Buscaminas
                             this.Controls.Add(but);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
+                            botones.Add(but); //FUNCIONAAA
                             x += 30;
                         }
                         x = 5;
