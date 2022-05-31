@@ -53,6 +53,7 @@
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnPlay
             // 
@@ -62,18 +63,21 @@
             this.btnPlay.TabIndex = 2;
             this.btnPlay.Text = "Jugar";
             this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // cboDifficulty
             // 
-            this.cboDifficulty.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cboDifficulty.FormattingEnabled = true;
+            this.cboDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDifficulty.Items.AddRange(new object[] {
+            "Modo fácil",
+            "Modo intermedio",
+            "Modo difícil"});
             this.cboDifficulty.Location = new System.Drawing.Point(206, 150);
             this.cboDifficulty.Name = "cboDifficulty";
             this.cboDifficulty.Size = new System.Drawing.Size(121, 23);
-            this.cboDifficulty.TabIndex = 3;
-            this.cboDifficulty.Text = "Dificultad";
+            this.cboDifficulty.TabIndex = 0;
             // 
-            // Form1
+            // FormStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,7 +88,9 @@
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.MaximumSize = new System.Drawing.Size(558, 258);
+            this.MinimumSize = new System.Drawing.Size(558, 258);
+            this.Name = "FormStart";
             this.Text = "Buscaminas";
             this.ResumeLayout(false);
             this.PerformLayout();
