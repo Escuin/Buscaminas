@@ -12,18 +12,51 @@ namespace Buscaminas
 {
     public partial class FormGame : Form
     {
+        private readonly string difficulty;
         public FormGame()
         {
             InitializeComponent();
         }
 
+        public FormGame(string diff)
+        {
+            InitializeComponent();
+            difficulty = diff;
+        }
+
         private void FormGame_Load(object sender, EventArgs e)
         {
-            Button b = new Button();
-            b.Visible = true;
-            this.Controls.Add(b);
-            b.Size = new Size(30, 30);
-            b.Location = new Point(5, 5);
+            switch (difficulty)
+            {
+                case "Modo fácil":
+                    int width = 30;
+                    int height = 30;
+                    int x = 5;
+                    int y = 5;
+                    int[] b = new int[16];
+
+                    foreach (var v in b)
+                    {
+                        foreach (var s in b)
+                        {
+                            Button but = new Button();
+                            but.Visible = true;
+                            this.Controls.Add(but);
+                            but.Size = new Size(width, height);
+                            but.Location = new Point(x, y);
+                            x += 30;
+                        }
+                        x = 5;
+                        y += 30;
+                    }
+                    break;
+                case "Modo intermedio":
+                    break;
+                case "Modo difícil":
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
