@@ -29,14 +29,34 @@ namespace Buscaminas
             switch (difficulty)
             {
                 case "Modo fácil":
+                    int[] b = new int[14]; //14*14 = 196 casillas
+                    crearBotones(difficulty, b);
+                    break;
 
+                case "Modo intermedio":
+                    b = new int[17]; //17*17 = 289 casillas
+                    crearBotones(difficulty, b);
+                    break;
+
+                case "Modo difícil":
+                    b = new int[20]; //20*20 = 400 casillas
+                    crearBotones(difficulty, b);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private List<Button> crearBotones(string difficulty, int[] b)
+        {
+            switch (difficulty)
+            {
+                case "Modo fácil":
                     int width = 30;
                     int height = 30;
                     int x = 95;
                     int y = 50;
-
-                    int[] b = new int[14];
-
                     List<Button> botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -54,16 +74,12 @@ namespace Buscaminas
                         x = 95;
                         y += 30;
                     }
-                    break;
-
+                    return botones;
                 case "Modo intermedio":
                     width = 30;
                     height = 30;
                     x = 50;
                     y = 50;
-
-                    b = new int[17];
-
                     botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -81,16 +97,12 @@ namespace Buscaminas
                         x = 50;
                         y += 30;
                     }
-                    break;
-
+                    return botones;
                 case "Modo difícil":
                     width = 30;
                     height = 30;
                     x = 5;
                     y = 5;
-
-                    b = new int[20];
-
                     botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -108,10 +120,11 @@ namespace Buscaminas
                         x = 5;
                         y += 30;
                     }
-                    break;
-
+                    return botones;
                 default:
-                    break;
+                    MessageBox.Show("Error inesperado, no se han podido generar las casillas");
+                    List<Button> error = new List<Button>();
+                    return error;
             }
         }
     }
