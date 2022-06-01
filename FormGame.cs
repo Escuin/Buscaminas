@@ -16,6 +16,7 @@ namespace Buscaminas
         public FormGame()
         {
             InitializeComponent();
+            difficulty = "";
         }
 
         public FormGame(string diff)
