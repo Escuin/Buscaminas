@@ -29,13 +29,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGame));
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnRestart = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnBack
+            // 
+            this.btnBack.Image = global::Buscaminas.Properties.Resources.back;
+            this.btnBack.Location = new System.Drawing.Point(560, 656);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(40, 40);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(388, 629);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(94, 29);
+            this.btnRestart.TabIndex = 1;
+            this.btnRestart.Text = "button1";
+            this.btnRestart.UseVisualStyleBackColor = true;
             // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 708);
+            this.ClientSize = new System.Drawing.Size(608, 704);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.btnBack);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
@@ -50,5 +74,8 @@
         }
 
         #endregion
+
+        private Button btnBack;
+        private Button btnRestart;
     }
 }

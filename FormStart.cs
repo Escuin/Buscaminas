@@ -31,7 +31,11 @@ namespace Buscaminas
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de querer cerrar el juego?", "Cerrar juego", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void cboDifficulty_SelectedIndexChanged(object sender, EventArgs e)

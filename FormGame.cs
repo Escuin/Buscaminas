@@ -65,7 +65,7 @@ namespace Buscaminas
                             Button but = new Button();
                             but.Visible = true;
                             this.Controls.Add(but);
-                            but.BackColor = Color.LightCyan;
+                            but.BackColor = Color.FromArgb(50, Color.LightGreen);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             botones.Add(but);
@@ -88,7 +88,7 @@ namespace Buscaminas
                             Button but = new Button();
                             but.Visible = true;
                             this.Controls.Add(but);
-                            but.BackColor = Color.LightCyan;
+                            but.BackColor = Color.FromArgb(50, Color.Orange);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             botones.Add(but);
@@ -111,7 +111,7 @@ namespace Buscaminas
                             Button but = new Button();
                             but.Visible = true;
                             this.Controls.Add(but);
-                            but.BackColor = Color.LightCyan;
+                            but.BackColor = Color.FromArgb(50, Color.Red);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             botones.Add(but);
@@ -125,6 +125,15 @@ namespace Buscaminas
                     MessageBox.Show("Error inesperado, no se han podido generar las casillas");
                     List<Button> error = new List<Button>();
                     return error;
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de querer volver a la pantalla de título?", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Close();
             }
         }
     }
