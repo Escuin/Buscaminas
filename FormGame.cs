@@ -45,6 +45,7 @@ namespace Buscaminas
                             Button but = new Button();
                             but.Visible = true;
                             this.Controls.Add(but);
+                            but.BackColor = Color.LightCyan;
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             botones.Add(but); //FUNCIONAAA
