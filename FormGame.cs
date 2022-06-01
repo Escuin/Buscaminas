@@ -48,18 +48,68 @@ namespace Buscaminas
                             but.BackColor = Color.LightCyan;
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
-                            botones.Add(but); //FUNCIONAAA
+                            botones.Add(but);
                             x += 30;
                         }
                         x = 5;
                         y += 30;
                     }
+                    break;
 
-                    break;
                 case "Modo intermedio":
+                    width = 30;
+                    height = 30;
+                    x = 5;
+                    y = 5;
+
+                    b = new int[16];
+
+                    botones = new List<Button>();
+                    foreach (var v in b)
+                    {
+                        foreach (var s in b)
+                        {
+                            Button but = new Button();
+                            but.Visible = true;
+                            this.Controls.Add(but);
+                            but.BackColor = Color.LightCyan;
+                            but.Size = new Size(width, height);
+                            but.Location = new Point(x, y);
+                            botones.Add(but);
+                            x += 30;
+                        }
+                        x = 5;
+                        y += 30;
+                    }
                     break;
+
                 case "Modo difícil":
+                    width = 30;
+                    height = 30;
+                    x = 5;
+                    y = 5;
+
+                    b = new int[16];
+
+                    botones = new List<Button>();
+                    foreach (var v in b)
+                    {
+                        foreach (var s in b)
+                        {
+                            Button but = new Button();
+                            but.Visible = true;
+                            this.Controls.Add(but);
+                            but.BackColor = Color.LightCyan;
+                            but.Size = new Size(width, height);
+                            but.Location = new Point(x, y);
+                            botones.Add(but);
+                            x += 30;
+                        }
+                        x = 5;
+                        y += 30;
+                    }
                     break;
+
                 default:
                     break;
             }

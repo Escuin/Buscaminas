@@ -39,27 +39,33 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Cascadia Code", 62.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(3, 9);
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblTitle.Location = new System.Drawing.Point(3, 12);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(537, 109);
+            this.lblTitle.Size = new System.Drawing.Size(668, 137);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Buscaminas";
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(206, 179);
+            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSalir.Image = global::Buscaminas.Properties.Resources.close;
+            this.btnSalir.Location = new System.Drawing.Point(606, 246);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(121, 23);
+            this.btnSalir.Size = new System.Drawing.Size(40, 40);
             this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(206, 121);
+            this.btnPlay.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPlay.Location = new System.Drawing.Point(250, 169);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(121, 23);
+            this.btnPlay.Size = new System.Drawing.Size(180, 55);
             this.btnPlay.TabIndex = 2;
             this.btnPlay.Text = "Jugar";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -72,25 +78,26 @@
             "Modo fácil",
             "Modo intermedio",
             "Modo difícil"});
-            this.cboDifficulty.Location = new System.Drawing.Point(206, 150);
+            this.cboDifficulty.Location = new System.Drawing.Point(250, 232);
+            this.cboDifficulty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboDifficulty.Name = "cboDifficulty";
-            this.cboDifficulty.Size = new System.Drawing.Size(121, 23);
+            this.cboDifficulty.Size = new System.Drawing.Size(180, 28);
             this.cboDifficulty.TabIndex = 0;
+            this.cboDifficulty.SelectedIndexChanged += new System.EventHandler(this.cboDifficulty_SelectedIndexChanged);
             // 
             // FormStart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 215);
+            this.ClientSize = new System.Drawing.Size(658, 299);
             this.Controls.Add(this.cboDifficulty);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(558, 258);
-            this.MinimumSize = new System.Drawing.Size(558, 258);
             this.Name = "FormStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscaminas";
