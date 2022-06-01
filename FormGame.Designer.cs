@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGame));
             this.btnBack = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnBack
@@ -45,11 +47,11 @@
             // 
             // btnRestart
             // 
-            this.btnRestart.Location = new System.Drawing.Point(388, 629);
+            this.btnRestart.Image = global::Buscaminas.Properties.Resources.restart;
+            this.btnRestart.Location = new System.Drawing.Point(514, 656);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(94, 29);
+            this.btnRestart.Size = new System.Drawing.Size(40, 40);
             this.btnRestart.TabIndex = 1;
-            this.btnRestart.Text = "button1";
             this.btnRestart.UseVisualStyleBackColor = true;
             // 
             // FormGame
@@ -77,5 +79,6 @@
 
         private Button btnBack;
         private Button btnRestart;
+        private System.Windows.Forms.Timer timer1;
     }
 }
