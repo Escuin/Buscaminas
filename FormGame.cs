@@ -60,8 +60,8 @@ namespace Buscaminas
                 case "Modo fácil":
                     int width = 30;
                     int height = 30;
-                    int x = 95;
-                    int y = 50;
+                    int x = 5;
+                    int y = 5;
                     List<Button> botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -76,15 +76,15 @@ namespace Buscaminas
                             botones.Add(but);
                             x += 30;
                         }
-                        x = 95;
+                        x = 5;
                         y += 30;
                     }
                     return botones;
                 case "Modo intermedio":
                     width = 30;
                     height = 30;
-                    x = 50;
-                    y = 50;
+                    x = 5;
+                    y = 5;
                     botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -99,7 +99,7 @@ namespace Buscaminas
                             botones.Add(but);
                             x += 30;
                         }
-                        x = 50;
+                        x = 5;
                         y += 30;
                     }
                     return botones;

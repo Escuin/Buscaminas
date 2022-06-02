@@ -98,6 +98,7 @@
             this.btnRanking.Size = new System.Drawing.Size(40, 40);
             this.btnRanking.TabIndex = 3;
             this.btnRanking.UseVisualStyleBackColor = false;
+            this.btnRanking.Click += new System.EventHandler(this.btnRanking_Click);
             // 
             // FormStart
             // 

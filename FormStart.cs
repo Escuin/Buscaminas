@@ -55,5 +55,11 @@ namespace Buscaminas
                     break;
             };
         }
+
+        private void btnRanking_Click(object sender, EventArgs e)
+        {
+            var frm = new FormRanking();
+            frm.Show();
+        }
     }
 }
