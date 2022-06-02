@@ -34,14 +34,15 @@
             this.btnRestart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTimer = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.lblDiff = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
             // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.Image = global::Buscaminas.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(739, 483);
+            this.btnBack.Location = new System.Drawing.Point(739, 536);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(40, 40);
@@ -51,8 +52,9 @@
             // 
             // btnRestart
             // 
+            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.Image = global::Buscaminas.Properties.Resources.restart;
-            this.btnRestart.Location = new System.Drawing.Point(739, 439);
+            this.btnRestart.Location = new System.Drawing.Point(693, 536);
             this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(40, 40);
@@ -66,41 +68,46 @@
             // 
             // lblTimer
             // 
+            this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("OpenSymbol", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTimer.Location = new System.Drawing.Point(640, 343);
+            this.lblTimer.Location = new System.Drawing.Point(647, 494);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(139, 40);
             this.lblTimer.TabIndex = 2;
             this.lblTimer.Text = "00:00:00";
             // 
-            // button1
+            // btnPause
             // 
-            this.button1.Image = global::Buscaminas.Properties.Resources.pause;
-            this.button1.Location = new System.Drawing.Point(739, 395);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPause.Image = global::Buscaminas.Properties.Resources.pause;
+            this.btnPause.Location = new System.Drawing.Point(647, 536);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(40, 40);
+            this.btnPause.TabIndex = 3;
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // label1
+            // lblDiff
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(691, 452);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "bla bla";
+            this.lblDiff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDiff.AutoSize = true;
+            this.lblDiff.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDiff.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDiff.Location = new System.Drawing.Point(638, 470);
+            this.lblDiff.Name = "lblDiff";
+            this.lblDiff.Size = new System.Drawing.Size(59, 24);
+            this.lblDiff.TabIndex = 4;
+            this.lblDiff.Text = "Modo";
             // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 587);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblDiff);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnBack);
@@ -123,7 +130,7 @@
         private Button btnRestart;
         private System.Windows.Forms.Timer timer1;
         private Label lblTimer;
-        private Button button1;
-        private Label label1;
+        private Button btnPause;
+        private Label lblDiff;
     }
 }

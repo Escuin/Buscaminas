@@ -34,18 +34,21 @@ namespace Buscaminas
             switch (difficulty)
             {
                 case "Modo fácil":
-                    int[] b = new int[12]; 
+                    int[] b = new int[13];
                     crearBotones(difficulty, b);
+                    lblDiff.Text = difficulty;
                     break;
 
                 case "Modo intermedio":
-                    b = new int[15]; 
+                    b = new int[16];
                     crearBotones(difficulty, b);
+                    lblDiff.Text = difficulty;
                     break;
 
                 case "Modo difícil":
-                    b = new int[18];
+                    b = new int[19];
                     crearBotones(difficulty, b);
+                    lblDiff.Text = difficulty;
                     break;
 
                 default:
@@ -135,8 +138,8 @@ namespace Buscaminas
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de querer volver a la pantalla de título?", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes)
+            DialogResult dg = MessageBox.Show("¿Estás seguro de querer volver a la pantalla de título?", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dg == DialogResult.Yes)
             {
                 Close();
             }
@@ -144,8 +147,28 @@ namespace Buscaminas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            var diff = DateTime.Now - start;
-            lblTimer.Text = diff.ToString("hh':'mm':'ss");
+            if (lblTimer.Text == "00:00:00")
+            {
+                var diff = DateTime.Now - start;
+                lblTimer.Text = diff.ToString("hh':'mm':'ss");
+            }
+            else
+            {
+                //start = DateTime.Now;
+                //lblTimer.Text = DateTime.Now.ToString("hh':'mm':'ss") - start;
+            }
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            DateTime pause = DateTime.Parse(lblTimer.Text);
+            timer1.Stop();
+            DialogResult dg = MessageBox.Show("PAUSA", "Pausa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (dg == DialogResult.OK)
+            {
+                timer1.Start();
+                lblTimer.Text = pause.ToString("hh':'mm':'ss");
+            }
         }
     }
 }
