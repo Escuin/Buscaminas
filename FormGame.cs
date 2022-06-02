@@ -13,6 +13,7 @@ namespace Buscaminas
     public partial class FormGame : Form
     {
         private readonly string difficulty;
+        private DateTime start;
         public FormGame()
         {
             InitializeComponent();
@@ -27,6 +28,9 @@ namespace Buscaminas
 
         private void FormGame_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            start = DateTime.Now;
+
             switch (difficulty)
             {
                 case "Modo fácil":
@@ -136,6 +140,12 @@ namespace Buscaminas
             {
                 Close();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var diff = DateTime.Now - start;
+            lblTimer.Text = diff.ToString("hh':'mm':'ss");
         }
     }
 }

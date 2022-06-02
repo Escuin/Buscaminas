@@ -33,6 +33,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.cboDifficulty = new System.Windows.Forms.ComboBox();
+            this.btnRanking = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -48,12 +49,15 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.AutoSize = true;
+            this.btnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSalir.BackColor = System.Drawing.Color.Transparent;
             this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
             this.btnSalir.Image = global::Buscaminas.Properties.Resources.close;
-            this.btnSalir.Location = new System.Drawing.Point(509, 172);
+            this.btnSalir.Location = new System.Drawing.Point(512, 174);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(40, 40);
+            this.btnSalir.Size = new System.Drawing.Size(38, 38);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -82,11 +86,25 @@
             this.cboDifficulty.TabIndex = 0;
             this.cboDifficulty.SelectedIndexChanged += new System.EventHandler(this.cboDifficulty_SelectedIndexChanged);
             // 
+            // btnRanking
+            // 
+            this.btnRanking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRanking.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRanking.BackColor = System.Drawing.Color.Transparent;
+            this.btnRanking.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRanking.Image = global::Buscaminas.Properties.Resources.menu;
+            this.btnRanking.Location = new System.Drawing.Point(12, 176);
+            this.btnRanking.Name = "btnRanking";
+            this.btnRanking.Size = new System.Drawing.Size(40, 40);
+            this.btnRanking.TabIndex = 3;
+            this.btnRanking.UseVisualStyleBackColor = false;
+            // 
             // FormStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 224);
+            this.Controls.Add(this.btnRanking);
             this.Controls.Add(this.cboDifficulty);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSalir);
@@ -108,5 +126,6 @@
         private Button btnSalir;
         private Button btnPlay;
         private ComboBox cboDifficulty;
+        private Button btnRanking;
     }
 }

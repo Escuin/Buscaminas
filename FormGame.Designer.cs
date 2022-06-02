@@ -35,6 +35,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTimer = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -58,30 +59,47 @@
             this.btnRestart.TabIndex = 1;
             this.btnRestart.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Location = new System.Drawing.Point(335, 496);
+            this.lblTimer.Font = new System.Drawing.Font("OpenSymbol", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTimer.Location = new System.Drawing.Point(245, 483);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(49, 15);
+            this.lblTimer.Size = new System.Drawing.Size(139, 40);
             this.lblTimer.TabIndex = 2;
             this.lblTimer.Text = "00:00:00";
             // 
             // button1
             // 
             this.button1.Image = global::Buscaminas.Properties.Resources.pause;
-            this.button1.Location = new System.Drawing.Point(390, 482);
+            this.button1.Location = new System.Drawing.Point(390, 483);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(22, 501);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "bla bla";
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 534);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRestart);
@@ -107,5 +125,6 @@
         private System.Windows.Forms.Timer timer1;
         private Label lblTimer;
         private Button button1;
+        private Label label1;
     }
 }
