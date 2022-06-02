@@ -33,14 +33,15 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
             // 
             this.btnBack.Image = global::Buscaminas.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(560, 656);
+            this.btnBack.Location = new System.Drawing.Point(482, 483);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(40, 40);
             this.btnBack.TabIndex = 0;
@@ -50,45 +51,46 @@
             // btnRestart
             // 
             this.btnRestart.Image = global::Buscaminas.Properties.Resources.restart;
-            this.btnRestart.Location = new System.Drawing.Point(514, 656);
+            this.btnRestart.Location = new System.Drawing.Point(436, 483);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(40, 40);
             this.btnRestart.TabIndex = 1;
             this.btnRestart.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblTimer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(301, 642);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Location = new System.Drawing.Point(335, 496);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(49, 15);
+            this.lblTimer.TabIndex = 2;
+            this.lblTimer.Text = "00:00:00";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(376, 642);
+            this.button1.Image = global::Buscaminas.Properties.Resources.pause;
+            this.button1.Location = new System.Drawing.Point(390, 482);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(40, 40);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // FormGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 704);
+            this.ClientSize = new System.Drawing.Size(534, 534);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(630, 755);
-            this.MinimumSize = new System.Drawing.Size(630, 755);
+            this.MaximumSize = new System.Drawing.Size(554, 577);
+            this.MinimumSize = new System.Drawing.Size(554, 577);
             this.Name = "FormGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscaminas";
@@ -103,7 +105,7 @@
         private Button btnBack;
         private Button btnRestart;
         private System.Windows.Forms.Timer timer1;
-        private Label label1;
+        private Label lblTimer;
         private Button button1;
     }
 }
