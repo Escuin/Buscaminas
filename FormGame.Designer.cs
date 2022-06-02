@@ -41,7 +41,7 @@
             // btnBack
             // 
             this.btnBack.Image = global::Buscaminas.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(686, 483);
+            this.btnBack.Location = new System.Drawing.Point(739, 483);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(40, 40);
@@ -52,7 +52,7 @@
             // btnRestart
             // 
             this.btnRestart.Image = global::Buscaminas.Properties.Resources.restart;
-            this.btnRestart.Location = new System.Drawing.Point(640, 483);
+            this.btnRestart.Location = new System.Drawing.Point(739, 439);
             this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(40, 40);
@@ -68,7 +68,7 @@
             // 
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("OpenSymbol", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTimer.Location = new System.Drawing.Point(594, 441);
+            this.lblTimer.Location = new System.Drawing.Point(640, 343);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(139, 40);
             this.lblTimer.TabIndex = 2;
@@ -77,7 +77,7 @@
             // button1
             // 
             this.button1.Image = global::Buscaminas.Properties.Resources.pause;
-            this.button1.Location = new System.Drawing.Point(594, 483);
+            this.button1.Location = new System.Drawing.Point(739, 395);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 40);
@@ -88,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(594, 426);
+            this.label1.Location = new System.Drawing.Point(691, 452);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 534);
+            this.ClientSize = new System.Drawing.Size(791, 587);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTimer);
@@ -107,12 +107,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(554, 577);
             this.Name = "FormGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscaminas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

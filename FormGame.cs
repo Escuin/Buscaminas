@@ -34,17 +34,17 @@ namespace Buscaminas
             switch (difficulty)
             {
                 case "Modo fácil":
-                    int[] b = new int[14]; //14*14 = 196 casillas
+                    int[] b = new int[12]; 
                     crearBotones(difficulty, b);
                     break;
 
                 case "Modo intermedio":
-                    b = new int[17]; //17*17 = 289 casillas
+                    b = new int[15]; 
                     crearBotones(difficulty, b);
                     break;
 
                 case "Modo difícil":
-                    b = new int[20]; //20*20 = 400 casillas
+                    b = new int[18];
                     crearBotones(difficulty, b);
                     break;
 
