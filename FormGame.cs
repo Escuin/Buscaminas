@@ -44,12 +44,16 @@ namespace Buscaminas
                 case "Modo intermedio":
                     b = new int[16];
                     crearBotones(difficulty, b);
+                    botones = crearBotones(difficulty, b);
+                    insertarMinas(difficulty, botones);
                     lblDiff.Text = difficulty;
                     break;
 
                 case "Modo difícil":
                     b = new int[19];
                     crearBotones(difficulty, b);
+                    botones = crearBotones(difficulty, b);
+                    insertarMinas(difficulty, botones);
                     lblDiff.Text = difficulty;
                     break;
 
@@ -86,8 +90,46 @@ namespace Buscaminas
 
                     break;
                 case "Modo intermedio":
+                    mines = new int[45];
+                    for (int i = 0; i < 45; i++)
+                    {
+                        int aux = r.Next(0, 16 * 16);
+                        while (mines.Contains(aux))
+                        {
+                            aux = r.Next(0, 16 * 16);
+                        }
+                        mines[i] = aux;
+                        botones[mines[i]].Name = "Mines";
+                    }
+                    foreach (Button b in botones)
+                    {
+                        if (b.Name != "Mines")
+                        {
+                            b.Name = "Field";
+                        }
+                        textBox1.AppendText(b.Name + Environment.NewLine);
+                    }
                     break;
                 case "Modo difícil":
+                    mines = new int[60];
+                    for (int i = 0; i < 60; i++)
+                    {
+                        int aux = r.Next(0, 19 * 19);
+                        while (mines.Contains(aux))
+                        {
+                            aux = r.Next(0, 19 * 19);
+                        }
+                        mines[i] = aux;
+                        botones[mines[i]].Name = "Mines";
+                    }
+                    foreach (Button b in botones)
+                    {
+                        if (b.Name != "Mines")
+                        {
+                            b.Name = "Field";
+                        }
+                        textBox1.AppendText(b.Name + Environment.NewLine);
+                    }
                     break;
                 default:
                     break;
