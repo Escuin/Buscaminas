@@ -25,6 +25,7 @@ namespace Buscaminas
             InitializeComponent();
             difficulty = diff;
         }
+        private List<Button> botones;
 
         private void FormGame_Load(object sender, EventArgs e)
         {
@@ -36,8 +37,9 @@ namespace Buscaminas
                 case "Modo fácil":
                     int[] b = new int[13];
                     crearBotones(difficulty, b);
-                    List<Button> botones = crearBotones(difficulty, b);
+                    botones = crearBotones(difficulty, b);
                     insertarMinas(difficulty, botones);
+                    botones = insertarMinas(difficulty, botones);
                     lblTimer.ForeColor = Color.Green;
                     break;
 
@@ -62,7 +64,7 @@ namespace Buscaminas
             }
         }
 
-        private void insertarMinas(string difficulty, List<Button> botones)
+        private List<Button> insertarMinas(string difficulty, List<Button> botones)
         {
             Random r = new Random();
             switch (difficulty)
@@ -77,17 +79,17 @@ namespace Buscaminas
                             aux = r.Next(0, 13 * 13);
                         }
                         mines[i] = aux;
-                        botones[mines[i]].Name = "Mines";
+                        botones[mines[i]].Name = "Mine";
                     }
                     foreach (Button b in botones)
                     {
-                        if (b.Name != "Mines")
+                        if (b.Name != "Mine")
                         {
                             b.Name = "Field";
                         }
                     }
+                    return botones;
 
-                    break;
                 case "Modo intermedio":
                     mines = new int[45];
                     for (int i = 0; i < 45; i++)
@@ -98,16 +100,17 @@ namespace Buscaminas
                             aux = r.Next(0, 16 * 16);
                         }
                         mines[i] = aux;
-                        botones[mines[i]].Name = "Mines";
+                        botones[mines[i]].Name = "Mine";
                     }
                     foreach (Button b in botones)
                     {
-                        if (b.Name != "Mines")
+                        if (b.Name != "Mine")
                         {
                             b.Name = "Field";
                         }
                     }
-                    break;
+                    return botones;
+
                 case "Modo difícil":
                     mines = new int[60];
                     for (int i = 0; i < 60; i++)
@@ -118,19 +121,29 @@ namespace Buscaminas
                             aux = r.Next(0, 19 * 19);
                         }
                         mines[i] = aux;
-                        botones[mines[i]].Name = "Mines";
+                        botones[mines[i]].Name = "Mine";
                     }
                     foreach (Button b in botones)
                     {
-                        if (b.Name != "Mines")
+                        if (b.Name != "Mine")
                         {
                             b.Name = "Field";
                         }
                     }
-                    break;
+                    return botones;
+
                 default:
-                    break;
+                    MessageBox.Show("Error inesperado al insertar las minas");
+                    return botones;
             }
+        }
+        private void but_Click(object sender, EventArgs e)
+        {
+            if (botones)
+        }
+        private void butMine_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("BOOOM");
         }
 
         private List<Button> crearBotones(string difficulty, int[] b)
@@ -155,6 +168,8 @@ namespace Buscaminas
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             but.Name = counter.ToString();
+                            but.Click += new EventHandler(but_Click);
+                            Controls.Add(but);
                             botones.Add(but);
                             x += 30;
                             counter++;
