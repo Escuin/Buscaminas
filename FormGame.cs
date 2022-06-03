@@ -36,6 +36,8 @@ namespace Buscaminas
                 case "Modo fácil":
                     int[] b = new int[13];
                     crearBotones(difficulty, b);
+                    List<Button> botones = crearBotones(difficulty, b);
+                    insertarMinas(difficulty, botones);
                     lblDiff.Text = difficulty;
                     break;
 
@@ -56,6 +58,42 @@ namespace Buscaminas
             }
         }
 
+        private void insertarMinas(string difficulty, List<Button> botones)
+        {
+            Random r = new Random();
+            switch (difficulty)
+            {
+                case "Modo fácil":
+                    int[] mines = new int[30];
+                    for (int i = 0; i < 30; i++)
+                    {
+                        int aux = r.Next(0, 13 * 13);
+                        while (mines.Contains(aux))
+                        {
+                            aux = r.Next(0, 13 * 13);
+                        }
+                        mines[i] = aux;
+                        botones[mines[i]].Name = "Mines";
+                    }
+                    foreach (Button b in botones)
+                    {
+                        if (b.Name != "Mines")
+                        {
+                            b.Name = "Field";
+                        }
+                        textBox1.AppendText(b.Name + Environment.NewLine);
+                    }
+
+                    break;
+                case "Modo intermedio":
+                    break;
+                case "Modo difícil":
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private List<Button> crearBotones(string difficulty, int[] b)
         {
             switch (difficulty)
@@ -66,6 +104,7 @@ namespace Buscaminas
                     int x = 5;
                     int y = 5;
                     List<Button> botones = new List<Button>();
+                    int counter = 0;
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -76,8 +115,10 @@ namespace Buscaminas
                             but.BackColor = Color.FromArgb(50, Color.LightGreen);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
+                            but.Name = counter.ToString();
                             botones.Add(but);
                             x += 30;
+                            counter++;
                         }
                         x = 5;
                         y += 30;
@@ -147,28 +188,8 @@ namespace Buscaminas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (lblTimer.Text == "00:00:00")
-            {
-                var diff = DateTime.Now - start;
-                lblTimer.Text = diff.ToString("hh':'mm':'ss");
-            }
-            else
-            {
-                //start = DateTime.Now;
-                //lblTimer.Text = DateTime.Now.ToString("hh':'mm':'ss") - start;
-            }
-        }
-
-        private void btnPause_Click(object sender, EventArgs e)
-        {
-            DateTime pause = DateTime.Parse(lblTimer.Text);
-            timer1.Stop();
-            DialogResult dg = MessageBox.Show("PAUSA", "Pausa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (dg == DialogResult.OK)
-            {
-                timer1.Start();
-                lblTimer.Text = pause.ToString("hh':'mm':'ss");
-            }
+            var diff = DateTime.Now - start;
+            lblTimer.Text = diff.ToString("hh':'mm':'ss");
         }
     }
 }
