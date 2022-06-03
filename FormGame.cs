@@ -38,7 +38,7 @@ namespace Buscaminas
                     crearBotones(difficulty, b);
                     List<Button> botones = crearBotones(difficulty, b);
                     insertarMinas(difficulty, botones);
-                    lblDiff.Text = difficulty;
+                    lblTimer.ForeColor = Color.Green;
                     break;
 
                 case "Modo intermedio":
@@ -46,7 +46,7 @@ namespace Buscaminas
                     crearBotones(difficulty, b);
                     botones = crearBotones(difficulty, b);
                     insertarMinas(difficulty, botones);
-                    lblDiff.Text = difficulty;
+                    lblTimer.ForeColor = Color.Orange;
                     break;
 
                 case "Modo difícil":
@@ -54,7 +54,7 @@ namespace Buscaminas
                     crearBotones(difficulty, b);
                     botones = crearBotones(difficulty, b);
                     insertarMinas(difficulty, botones);
-                    lblDiff.Text = difficulty;
+                    lblTimer.ForeColor = Color.Red;
                     break;
 
                 default:
@@ -85,7 +85,6 @@ namespace Buscaminas
                         {
                             b.Name = "Field";
                         }
-                        textBox1.AppendText(b.Name + Environment.NewLine);
                     }
 
                     break;
@@ -107,7 +106,6 @@ namespace Buscaminas
                         {
                             b.Name = "Field";
                         }
-                        textBox1.AppendText(b.Name + Environment.NewLine);
                     }
                     break;
                 case "Modo difícil":
@@ -128,7 +126,6 @@ namespace Buscaminas
                         {
                             b.Name = "Field";
                         }
-                        textBox1.AppendText(b.Name + Environment.NewLine);
                     }
                     break;
                 default:
@@ -145,8 +142,8 @@ namespace Buscaminas
                     int height = 30;
                     int x = 5;
                     int y = 5;
-                    List<Button> botones = new List<Button>();
                     int counter = 0;
+                    List<Button> botones = new List<Button>();
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -171,6 +168,7 @@ namespace Buscaminas
                     height = 30;
                     x = 5;
                     y = 5;
+                    counter = 0;
                     botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -182,8 +180,10 @@ namespace Buscaminas
                             but.BackColor = Color.FromArgb(50, Color.Orange);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
+                            but.Name = counter.ToString();
                             botones.Add(but);
                             x += 30;
+                            counter++;
                         }
                         x = 5;
                         y += 30;
@@ -194,6 +194,7 @@ namespace Buscaminas
                     height = 30;
                     x = 5;
                     y = 5;
+                    counter = 0;
                     botones = new List<Button>();
                     foreach (var v in b)
                     {
@@ -205,8 +206,10 @@ namespace Buscaminas
                             but.BackColor = Color.FromArgb(50, Color.Red);
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
+                            but.Name = counter.ToString();
                             botones.Add(but);
                             x += 30;
+                            counter++;
                         }
                         x = 5;
                         y += 30;
