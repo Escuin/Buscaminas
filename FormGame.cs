@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -72,7 +73,6 @@ namespace Buscaminas
                     int y = 5;
                     int counter = 0;
                     List<Button> botones = new List<Button>();
-
                     int[] mines = new int[30];
                     for (int i = 0; i < 30; i++)
                     {
@@ -96,23 +96,13 @@ namespace Buscaminas
                             but.Location = new Point(x, y);
                             but.Name = counter.ToString();
                             counter++;
-
                             if (mines.Contains(int.Parse(but.Name)))
                             {
-                                but.Name = "Mine";
+                                but.Name = "Mine"; but.Click += new EventHandler(mine_Click);
                             }
                             else
                             {
-                                but.Name = "Field";
-                            }
-
-                            if (but.Name == "Mine")
-                            {
-                                but.Click += new EventHandler(mine_Click);
-                            }
-                            else if (but.Name == "Field")
-                            {
-                                but.Click += new EventHandler(field_Click);
+                                but.Name = "Field"; but.Click += new EventHandler(field_Click);
                             }
                             Controls.Add(but);
                             botones.Add(but);
@@ -129,6 +119,7 @@ namespace Buscaminas
                     y = 5;
                     counter = 0;
                     botones = new List<Button>();
+                    mines = new int[45];
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -140,10 +131,17 @@ namespace Buscaminas
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             but.Name = counter.ToString();
+                            if (mines.Contains(int.Parse(but.Name)))
+                            {
+                                but.Name = "Mine"; but.Click += new EventHandler(mine_Click);
+                            }
+                            else
+                            {
+                                but.Name = "Field"; but.Click += new EventHandler(field_Click);
+                            }
                             Controls.Add(but);
                             botones.Add(but);
                             x += 30;
-                            counter++;
                         }
                         x = 5;
                         y += 30;
@@ -156,6 +154,7 @@ namespace Buscaminas
                     y = 5;
                     counter = 0;
                     botones = new List<Button>();
+                    mines = new int[60];
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -167,10 +166,18 @@ namespace Buscaminas
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             but.Name = counter.ToString();
+                            counter++;
+                            if (mines.Contains(int.Parse(but.Name)))
+                            {
+                                but.Name = "Mine"; but.Click += new EventHandler(mine_Click);
+                            }
+                            else
+                            {
+                                but.Name = "Field"; but.Click += new EventHandler(field_Click);
+                            }
                             Controls.Add(but);
                             botones.Add(but);
                             x += 30;
-                            counter++;
                         }
                         x = 5;
                         y += 30;
@@ -183,14 +190,15 @@ namespace Buscaminas
             }
         }
 
-        private void field_Click(object? sender, EventArgs e)
+        private void field_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No ha pasado nada...");
+            Button field = (Button)sender;
         }
 
-        private void mine_Click(object? sender, EventArgs e)
+        private void mine_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Boom");
+            Button mine = (Button)sender;
+            mine.Image = Image.FromFile(@$"{Directory.GetCurrentDirectory()}\images\mina.png");
         }
 
         private void btnBack_Click(object sender, EventArgs e)

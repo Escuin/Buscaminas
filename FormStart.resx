@@ -58,6 +58,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRanking.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFpSURBVFhHxZc9bsJAEIXdU4RbkAvkCChFjgAnCk3oKUjB
+        IXIAqOg5QMokNUWK5H0rjGRrvF57bc+TPsny7r7x/njGLjroQazETpzFl/i9wTX3aKPPXAymR7EXV/GX
+        CH0Zw9jemok3wQytICkwFg+8OmkhLsIy7QNeyavxJH6EZZQDnnhHxczHCF6Cd+NKsE9DLnsTxDDPBIfF
+        GjAGW1ERy2Kd9k/xkQkedV9iVbaCd7beCV5ErvCwvIkZRIZrSjJLkSs8LG9ihoxJ6rQ6wEGsM8HD8gZi
+        h/xtNU4BsUMRsRqngNihklmNcBKbTPCwvOFbRIvNs8gVHpY3ENv/AWJbcBSvmeBheUPYAvdD6P4auici
+        0qFrKkYexehd3OVejpHrBwly/yRDLIvbR2kp18/yUjzlkNuBV+vM62KfOCyxYtUGY/Fo3PMU8eR9fk55
+        zzvPOiayFqmT/E0RoZIxQ+Cae7TRJ/H3vCj+ATMJi0fE7+QRAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAPY6AQD2OgEAAAAAAAAA

@@ -92,7 +92,7 @@
             this.btnRanking.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRanking.BackColor = System.Drawing.Color.Transparent;
             this.btnRanking.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRanking.Image = global::Buscaminas.Properties.Resources.menu;
+            this.btnRanking.Image = ((System.Drawing.Image)(resources.GetObject("btnRanking.Image")));
             this.btnRanking.Location = new System.Drawing.Point(12, 176);
             this.btnRanking.Name = "btnRanking";
             this.btnRanking.Size = new System.Drawing.Size(40, 40);
