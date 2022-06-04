@@ -34,6 +34,7 @@
             this.btnRestart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTimer = new System.Windows.Forms.Label();
+            this.lblLives = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -75,11 +76,22 @@
             this.lblTimer.TabIndex = 2;
             this.lblTimer.Text = "00:00:00";
             // 
+            // lblLives
+            // 
+            this.lblLives.AutoSize = true;
+            this.lblLives.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLives.Location = new System.Drawing.Point(657, 453);
+            this.lblLives.Name = "lblLives";
+            this.lblLives.Size = new System.Drawing.Size(72, 30);
+            this.lblLives.TabIndex = 3;
+            this.lblLives.Text = "VIDAS";
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 587);
+            this.Controls.Add(this.lblLives);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnBack);
@@ -102,5 +114,6 @@
         private Button btnRestart;
         private System.Windows.Forms.Timer timer1;
         private Label lblTimer;
+        private Label lblLives;
     }
 }
