@@ -16,5 +16,10 @@ namespace Buscaminas
         {
             InitializeComponent();
         }
+
+        public FormRanking(string time, string difficulty)
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Buscaminas
     {
         private readonly string difficulty;
         private DateTime start;
+        private int fieldCounter = 0;
         public FormGame()
         {
             InitializeComponent();
@@ -60,7 +61,6 @@ namespace Buscaminas
                     break;
             }
         }
-
         private List<Button> crearBotones(string difficulty, int[] b)
         {
             Random r = new Random();
@@ -111,6 +111,18 @@ namespace Buscaminas
                         x = 5;
                         y += 30;
                     }
+                    int contador = 0;
+                    foreach (Button btn in botones)
+                    {
+                        int minas = 0;
+                        if (btn.Name == "Field")
+                        {
+                            minas = cuentaMinas(botones, contador, minas);
+                        }
+                        btn.Tag = minas;
+                        minas = 0;
+                        contador++;
+                    }
                     return botones;
                 case "Modo intermedio":
                     width = 30;
@@ -120,6 +132,15 @@ namespace Buscaminas
                     counter = 0;
                     botones = new List<Button>();
                     mines = new int[45];
+                    for (int i = 0; i < 45; i++)
+                    {
+                        int aux = r.Next(0, 16 * 16);
+                        while (mines.Contains(aux))
+                        {
+                            aux = r.Next(0, 16 * 16);
+                        }
+                        mines[i] = aux;
+                    }
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -131,6 +152,7 @@ namespace Buscaminas
                             but.Size = new Size(width, height);
                             but.Location = new Point(x, y);
                             but.Name = counter.ToString();
+                            counter++;
                             if (mines.Contains(int.Parse(but.Name)))
                             {
                                 but.Name = "Mine"; but.Click += new EventHandler(mine_Click);
@@ -155,6 +177,15 @@ namespace Buscaminas
                     counter = 0;
                     botones = new List<Button>();
                     mines = new int[60];
+                    for (int i = 0; i < 60; i++)
+                    {
+                        int aux = r.Next(0, 19 * 19);
+                        while (mines.Contains(aux))
+                        {
+                            aux = r.Next(0, 19 * 19);
+                        }
+                        mines[i] = aux;
+                    }
                     foreach (var v in b)
                     {
                         foreach (var s in b)
@@ -190,15 +221,91 @@ namespace Buscaminas
             }
         }
 
+        private static int cuentaMinas(List<Button> botones, int contador, int minas)
+        {
+            if (contador > 0 && botones[contador - 1].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador < 168 && botones[contador + 1].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador >= 12 && botones[contador - 12].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador >= 13 && botones[contador - 13].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador >= 14 && botones[contador - 14].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador <= 156 && botones[contador + 12].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador <= 155 && botones[contador + 13].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            if (contador <= 154 && botones[contador + 14].Name.Contains("Mine"))
+            {
+                minas++;
+            }
+            return minas;
+        }
+
         private void field_Click(object sender, EventArgs e)
         {
+            fieldCounter++;
             Button field = (Button)sender;
+            field.Image = Image.FromFile($@"{Directory.GetCurrentDirectory()}\images\number{field.Tag}.png");
+            field.Enabled = false;
+            switch (difficulty)
+            {
+                case "Modo fácil":
+                    if (fieldCounter == 13 * 13 - 30)
+                    {
+                        timer1.Stop();
+                        MessageBox.Show("Felicidades has ganado");
+                        string time = lblTimer.Text;
+                        FormRanking frm = new FormRanking(time, difficulty);
+                        frm.Show();
+                    }
+                    break;
+                case "Modo intermedio":
+                    if (fieldCounter == 16 * 16 - 45)
+                    {
+                        timer1.Stop();
+                        MessageBox.Show("Felicidades has ganado");
+                        string time = lblTimer.Text;
+                        FormRanking frm = new FormRanking(time, difficulty);
+                        frm.Show();
+                    }
+                    break;
+                case "Modo difícil":
+                    if (fieldCounter == 19 * 19 - 60)
+                    {
+                        timer1.Stop();
+                        MessageBox.Show("Felicidades has ganado");
+                        string time = lblTimer.Text;
+                        FormRanking frm = new FormRanking(time, difficulty);
+                        frm.Show();
+                    }
+                    break;
+            }
         }
 
         private void mine_Click(object sender, EventArgs e)
         {
             Button mine = (Button)sender;
             mine.Image = Image.FromFile(@$"{Directory.GetCurrentDirectory()}\images\mina.png");
+            timer1.Stop();
+            MessageBox.Show("¡Boom!, has perdido... Fin del juego");
+            Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
