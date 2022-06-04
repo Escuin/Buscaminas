@@ -45,6 +45,7 @@ namespace Buscaminas
                     botones = crearBotones(difficulty, b);
                     lblTimer.ForeColor = Color.Green;
                     lblLives.Text = "VIDAS: 5";
+                    MessageBox.Show(botones[0].Name);
                     break;
 
                 case "Modo intermedio":
@@ -232,32 +233,32 @@ namespace Buscaminas
             switch (difficulty)
             {
                 case "Modo fácil":
-                    if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 14 || contador != 27 || contador != 40 || contador != 53 || contador != 66 || contador != 79
-                                                                                    || contador != 92 || contador != 105 || contador != 118 || contador != 131 || contador != 144 || contador != 157))
+                    if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 13 && contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
+                                                                                      && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
                     {
                         minas++;
                     }
-                    if (contador < 168 && botones[contador + 1].Name.Contains("Mine") && (contador != 13 || contador != 26 || contador != 39 || contador != 52 || contador != 65 || contador != 78
-                                                                                      || contador != 91 || contador != 104 || contador != 117 || contador != 130 || contador != 143 || contador != 156))
+                    if (contador < 168 && botones[contador + 1].Name.Contains("Mine") && (contador != 14 && contador != 27 && contador != 40 && contador != 53 && contador != 66 && contador != 79
+                                                                                      && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144 && contador != 157))
                     {
                         minas++;
                     }
-                    if (contador >= 12 && botones[contador - 12].Name.Contains("Mine") && (contador != 14 || contador != 27 || contador != 40 || contador != 53 || contador != 66 || contador != 79
-                                                                                    || contador != 92 || contador != 105 || contador != 118 || contador != 131 || contador != 144 || contador != 157))
+                    if (contador >= 12 && botones[contador - 12].Name.Contains("Mine") && (contador != 14 && contador != 27 && contador != 40 && contador != 53 && contador != 66 && contador != 79
+                                                                                      && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144 && contador != 157))
                     {
                         minas++;
                     }
-                    if (contador >= 13 && botones[contador - 13].Name.Contains("Mine") && (contador != 14 || contador != 27 || contador != 40 || contador != 53 || contador != 66 || contador != 79
-                                                                                    || contador != 92 || contador != 105 || contador != 118 || contador != 131 || contador != 144 || contador != 157))
+                    if (contador >= 13 && botones[contador - 13].Name.Contains("Mine"))
                     {
                         minas++;
                     }
-                    if (contador >= 14 && botones[contador - 14].Name.Contains("Mine") && (contador != 14 || contador != 27 || contador != 40 || contador != 53 || contador != 66 || contador != 79
-                                                                                    || contador != 92 || contador != 105 || contador != 118 || contador != 131 || contador != 144 || contador != 157))
+                    if (contador >= 14 && botones[contador - 14].Name.Contains("Mine") && (contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
+                                                                                      && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
                     {
                         minas++;
                     }
-                    if (contador <= 156 && botones[contador + 12].Name.Contains("Mine"))
+                    if (contador <= 156 && botones[contador + 12].Name.Contains("Mine") && (contador != 0 && contador != 13 && contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
+                                                                                      && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
                     {
                         minas++;
                     }
@@ -265,7 +266,8 @@ namespace Buscaminas
                     {
                         minas++;
                     }
-                    if (contador <= 154 && botones[contador + 14].Name.Contains("Mine"))
+                    if (contador <= 154 && botones[contador + 14].Name.Contains("Mine") && (contador != 14 && contador != 27 && contador != 40 && contador != 53 && contador != 66 && contador != 79
+                                                                                      && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144))
                     {
                         minas++;
                     }
@@ -325,10 +327,11 @@ namespace Buscaminas
         private void mine_Click(object sender, EventArgs e)
         {
             Button mine = (Button)sender;
+            mine.Image = Image.FromFile(@$"{Directory.GetCurrentDirectory()}\images\mina.png");
+            mine.Enabled = false;
             switch (difficulty)
             {
                 case "Modo fácil":
-                    mine.Image = Image.FromFile(@$"{Directory.GetCurrentDirectory()}\images\mina.png");
                     easyLives--;
                     if (easyLives == 0)
                     {
@@ -336,12 +339,11 @@ namespace Buscaminas
                         lblLives.Text = $"VIDAS: {easyLives}";
                         timer1.Stop();
                         MessageBox.Show("¡Boom!, has perdido... Fin del juego");
-                        Close();
+                        //Close();
                     }
                     lblLives.Text = $"VIDAS: {easyLives}";
                     break;
                 case "Modo intermedio":
-                    mine.Image = Image.FromFile(@$"{Directory.GetCurrentDirectory()}\images\mina.png");
                     mediumLives--;
                     if (mediumLives == 0)
                     {
@@ -349,12 +351,11 @@ namespace Buscaminas
                         lblLives.Text = $"VIDAS: {mediumLives}";
                         timer1.Stop();
                         MessageBox.Show("¡Boom!, has perdido... Fin del juego");
-                        Close();
+                        //Close();
                     }
                     lblLives.Text = $"VIDAS: {mediumLives}";
                     break;
                 case "Modo difícil":
-                    mine.Image = Image.FromFile(@$"{Directory.GetCurrentDirectory()}\images\mina.png");
                     hardLives--;
                     if (hardLives == 0)
                     {
@@ -362,7 +363,7 @@ namespace Buscaminas
                         lblLives.Text = $"VIDAS: {hardLives}";
                         timer1.Stop();
                         MessageBox.Show("¡Boom!, has perdido... Fin del juego");
-                        Close();
+                        //Close();
                     }
                     lblLives.Text = $"VIDAS: {hardLives}";
                     break;
