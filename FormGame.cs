@@ -22,7 +22,7 @@ namespace Buscaminas
         public FormGame()
         {
             InitializeComponent();
-            difficulty = "";
+            difficulty = "Modo fácil";
         }
 
         public FormGame(string diff)
@@ -175,6 +175,18 @@ namespace Buscaminas
                         x = 5;
                         y += 30;
                     }
+                    contador = 0;
+                    foreach (Button btn in botones)
+                    {
+                        int minas = 0;
+                        if (btn.Name == "Field")
+                        {
+                            minas = cuentaMinas(difficulty, botones, contador, minas);
+                        }
+                        btn.Tag = minas;
+                        minas = 0;
+                        contador++;
+                    }
                     return botones;
                 case "Modo difícil":
                     width = 30;
@@ -220,6 +232,18 @@ namespace Buscaminas
                         x = 5;
                         y += 30;
                     }
+                    contador = 0;
+                    foreach (Button btn in botones)
+                    {
+                        int minas = 0;
+                        if (btn.Name == "Field")
+                        {
+                            minas = cuentaMinas(difficulty, botones, contador, minas);
+                        }
+                        btn.Tag = minas;
+                        minas = 0;
+                        contador++;
+                    }
                     return botones;
                 default:
                     MessageBox.Show("Error inesperado, no se han podido generar las casillas");
@@ -234,7 +258,7 @@ namespace Buscaminas
             {
                 case "Modo fácil":
                     if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 13 && contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
-                                                                                      && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
+                                                                                    && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
                     {
                         minas++;
                     }
@@ -244,7 +268,7 @@ namespace Buscaminas
                         minas++;
                     }
                     if (contador >= 12 && botones[contador - 12].Name.Contains("Mine") && (contador != 14 && contador != 27 && contador != 40 && contador != 53 && contador != 66 && contador != 79
-                                                                                      && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144 && contador != 157))
+                                                                                       && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144 && contador != 157))
                     {
                         minas++;
                     }
@@ -253,12 +277,12 @@ namespace Buscaminas
                         minas++;
                     }
                     if (contador >= 14 && botones[contador - 14].Name.Contains("Mine") && (contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
-                                                                                      && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
+                                                                                       && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
                     {
                         minas++;
                     }
                     if (contador <= 156 && botones[contador + 12].Name.Contains("Mine") && (contador != 0 && contador != 13 && contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
-                                                                                      && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
+                                                                                        && contador != 91 && contador != 104 && contador != 117 && contador != 130 && contador != 143 && contador != 156))
                     {
                         minas++;
                     }
@@ -267,12 +291,56 @@ namespace Buscaminas
                         minas++;
                     }
                     if (contador <= 154 && botones[contador + 14].Name.Contains("Mine") && (contador != 14 && contador != 27 && contador != 40 && contador != 53 && contador != 66 && contador != 79
-                                                                                      && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144))
+                                                                                        && contador != 92 && contador != 105 && contador != 118 && contador != 131 && contador != 144))
                     {
                         minas++;
                     }
                     return minas;
                 case "Modo intermedio":
+                    if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 16 && contador != 32 && contador != 48 && contador != 64 && contador != 80 && contador != 96
+                                                                                    && contador != 112 && contador != 128 && contador != 144 && contador != 160 && contador != 176 && contador != 192
+                                                                                    && contador != 208 && contador != 224 && contador != 240))
+                    {
+                        minas++;
+                    }
+                    if (contador < 255 && botones[contador + 1].Name.Contains("Mine") && (contador != 17 && contador != 33 && contador != 49 && contador != 65 && contador != 81 && contador != 97
+                                                                                      && contador != 113 && contador != 129 && contador != 145 && contador != 161 && contador != 177 && contador != 193
+                                                                                      && contador != 209 && contador != 225 && contador != 241))
+                    {
+                        minas++;
+                    }
+                    if (contador >= 15 && botones[contador - 15].Name.Contains("Mine") && (contador != 17 && contador != 33 && contador != 49 && contador != 65 && contador != 81 && contador != 97
+                                                                                       && contador != 113 && contador != 129 && contador != 145 && contador != 161 && contador != 177 && contador != 193
+                                                                                       && contador != 209 && contador != 225 && contador != 241))
+                    {
+                        minas++;
+                    }
+                    if (contador >= 16 && botones[contador - 16].Name.Contains("Mine"))
+                    {
+                        minas++;
+                    }
+                    if (contador >= 17 && botones[contador - 17].Name.Contains("Mine") && (contador != 32 && contador != 48 && contador != 64 && contador != 80 && contador != 96
+                                                                                       && contador != 112 && contador != 128 && contador != 144 && contador != 160 && contador != 176 && contador != 192
+                                                                                       && contador != 208 && contador != 224 && contador != 240))
+                    {
+                        minas++;
+                    }
+                    if (contador <= 240 && botones[contador + 15].Name.Contains("Mine") && (contador != 0 && contador != 16 && contador != 32 && contador != 48 && contador != 64 && contador != 80 && contador != 96
+                                                                                        && contador != 112 && contador != 128 && contador != 144 && contador != 160 && contador != 176 && contador != 192
+                                                                                        && contador != 208 && contador != 224 && contador != 240))
+                    {
+                        minas++;
+                    }
+                    if (contador <= 239 && botones[contador + 16].Name.Contains("Mine"))
+                    {
+                        minas++;
+                    }
+                    if (contador <= 238 && botones[contador + 17].Name.Contains("Mine") && (contador != 17 && contador != 33 && contador != 49 && contador != 65 && contador != 81 && contador != 97
+                                                                                        && contador != 113 && contador != 129 && contador != 145 && contador != 161 && contador != 177 && contador != 193
+                                                                                        && contador != 209 && contador != 225))
+                    {
+                        minas++;
+                    }
                     return minas;
                 case "Modo difícil":
                     return minas;
