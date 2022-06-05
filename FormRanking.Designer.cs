@@ -29,20 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRanking));
+            this.dg = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dg
+            // 
+            this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dg.Location = new System.Drawing.Point(0, 0);
+            this.dg.Name = "dg";
+            this.dg.RowTemplate.Height = 25;
+            this.dg.Size = new System.Drawing.Size(755, 494);
+            this.dg.TabIndex = 0;
             // 
             // FormRanking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 494);
+            this.Controls.Add(this.dg);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRanking";
             this.Text = "Ranking";
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private DataGridView dg;
     }
 }

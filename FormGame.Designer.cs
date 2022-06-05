@@ -35,13 +35,15 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTimer = new System.Windows.Forms.Label();
             this.lblLives = new System.Windows.Forms.Label();
+            this.btnFlag = new System.Windows.Forms.Button();
+            this.btnQuestion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.Image = global::Buscaminas.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(729, 536);
+            this.btnBack.Location = new System.Drawing.Point(739, 536);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(40, 40);
@@ -53,12 +55,13 @@
             // 
             this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.Image = global::Buscaminas.Properties.Resources.restart;
-            this.btnRestart.Location = new System.Drawing.Point(657, 536);
+            this.btnRestart.Location = new System.Drawing.Point(693, 536);
             this.btnRestart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(40, 40);
             this.btnRestart.TabIndex = 1;
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // timer1
             // 
@@ -70,7 +73,7 @@
             this.lblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTimer.Location = new System.Drawing.Point(638, 494);
+            this.lblTimer.Location = new System.Drawing.Point(615, 497);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(151, 37);
             this.lblTimer.TabIndex = 2;
@@ -80,17 +83,39 @@
             // 
             this.lblLives.AutoSize = true;
             this.lblLives.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLives.Location = new System.Drawing.Point(657, 453);
+            this.lblLives.Location = new System.Drawing.Point(647, 467);
             this.lblLives.Name = "lblLives";
             this.lblLives.Size = new System.Drawing.Size(72, 30);
             this.lblLives.TabIndex = 3;
             this.lblLives.Text = "VIDAS";
+            // 
+            // btnFlag
+            // 
+            this.btnFlag.Image = global::Buscaminas.Properties.Resources.flag;
+            this.btnFlag.Location = new System.Drawing.Point(647, 536);
+            this.btnFlag.Name = "btnFlag";
+            this.btnFlag.Size = new System.Drawing.Size(40, 40);
+            this.btnFlag.TabIndex = 4;
+            this.btnFlag.UseVisualStyleBackColor = true;
+            this.btnFlag.Click += new System.EventHandler(this.btnFlag_Click);
+            // 
+            // btnQuestion
+            // 
+            this.btnQuestion.Image = global::Buscaminas.Properties.Resources.question_mark;
+            this.btnQuestion.Location = new System.Drawing.Point(601, 535);
+            this.btnQuestion.Name = "btnQuestion";
+            this.btnQuestion.Size = new System.Drawing.Size(40, 40);
+            this.btnQuestion.TabIndex = 5;
+            this.btnQuestion.UseVisualStyleBackColor = true;
+            this.btnQuestion.Click += new System.EventHandler(this.btnQuestion_Click);
             // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 587);
+            this.Controls.Add(this.btnQuestion);
+            this.Controls.Add(this.btnFlag);
             this.Controls.Add(this.lblLives);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRestart);
@@ -115,5 +140,7 @@
         private System.Windows.Forms.Timer timer1;
         private Label lblTimer;
         private Label lblLives;
+        private Button btnFlag;
+        private Button btnQuestion;
     }
 }
