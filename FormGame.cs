@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Buscaminas
 {
+    /// <summary>
+    /// Clase que representa el juego interactivo del buscaminas
+    /// </summary>
     public partial class FormGame : Form
     {
         private readonly string difficulty;
@@ -499,6 +502,9 @@ namespace Buscaminas
             }
         }
 
+        /// <summary>
+        /// Click a una casilla mina: Si no se han seleccionado la bandera o el interrogante se mostrará la imagen de la mina y si se han terminado las vidas el juego finalizará, el formulario se cierra
+        /// </summary>
         private void mine_Click(object sender, EventArgs e)
         {
             Button mine = (Button)sender;
@@ -524,7 +530,7 @@ namespace Buscaminas
                             lblLives.Text = $"VIDAS: {easyLives}";
                             timer1.Stop();
                             MessageBox.Show("¡Boom!, has perdido... Fin del juego");
-                            //Close();
+                            Close();
                         }
                         lblLives.Text = $"VIDAS: {easyLives}";
                         break;
@@ -556,6 +562,9 @@ namespace Buscaminas
             }
         }
 
+        /// <summary>
+        /// Botón atrás: Tras un mensaje de confirmación cierra el juego y vuelve a la pantalla de título
+        /// </summary>
         private void btnBack_Click(object sender, EventArgs e)
         {
             DialogResult dg = MessageBox.Show("¿Estás seguro de querer volver a la pantalla de título?", "Cerrar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -565,19 +574,33 @@ namespace Buscaminas
             }
         }
 
+        /// <summary>
+        /// Cada segundo el timer se actualiza y se refleja en el label de contador del formulario
+        /// </summary>
         private void timer1_Tick(object sender, EventArgs e)
         {
             var diff = DateTime.Now - start;
             lblTimer.Text = diff.ToString("hh':'mm':'ss");
         }
 
+        /// <summary>
+        /// Botón reinicio: Tras un mensaje de confirmación reinicia la partida cerrando y abriendo un nuevo formulario
+        /// </summary>
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            Close();
-            var f = new FormGame(difficulty);
-            f.Show();
+            DialogResult dg = MessageBox.Show("¿Estás seguro de querer reiniciar la partida?", "Reinciar partida", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dg == DialogResult.Yes)
+            {
+                Close();
+                var f = new FormGame(difficulty);
+                f.Show();
+            }
         }
 
+        /// <summary>
+        /// Click a la bandera: Su activación implica poner una bandera en las casillas que se cliquen a modo de indicar una mina
+        /// No se puede usar a la vez que la interrogación
+        /// </summary>
         public void btnFlag_Click(object sender, EventArgs e)
         {
             if (btnFlag.Tag == "yes")
@@ -594,6 +617,10 @@ namespace Buscaminas
 
         }
 
+        /// <summary>
+        /// Click a la interrogación: Su activación implica poner una interrogación en las casillas que se cliquen a modo de indicar duda
+        /// No se puede usar a la vez que la bandera
+        /// </summary>
         public void btnQuestion_Click(object sender, EventArgs e)
         {
             if (btnQuestion.Tag == "yes")

@@ -1,5 +1,8 @@
 namespace Buscaminas
 {
+    /// <summary>
+    /// Clase que representa la pantalla inicial de la aplicación y sus distintas opciones
+    /// </summary>
     public partial class FormStart : Form
     {
         public FormStart()
