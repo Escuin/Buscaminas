@@ -19,6 +19,7 @@ namespace Buscaminas
         private int easyLives = 5;
         private int mediumLives = 3;
         private int hardLives = 1;
+        private List<Button> botones;
         public FormGame()
         {
             InitializeComponent();
@@ -30,8 +31,10 @@ namespace Buscaminas
             InitializeComponent();
             difficulty = diff;
         }
-        private List<Button> botones;
 
+        /// <summary>
+        /// Carga de formulario: inicia el temporizador y dependiendo de la dificultad llama a distintos métodos para crear el juego adecuado
+        /// </summary>
         private void FormGame_Load(object sender, EventArgs e)
         {
             timer1.Start();
@@ -68,7 +71,12 @@ namespace Buscaminas
             }
         }
 
-        public event EventHandler Click;
+        /// <summary>
+        /// Crea la cuadrícula de botones y les asigna un identificador de mina o tierra
+        /// </summary>
+        /// <param name="difficulty">Dificultad</param>
+        /// <param name="b">Array con longitud determinada</param>
+        /// <returns>Devuelve la lista de botones</returns>
         private List<Button> crearBotones(string difficulty, int[] b)
         {
             Random r = new Random();
@@ -242,6 +250,14 @@ namespace Buscaminas
             }
         }
 
+        /// <summary>
+        /// Dependiendo de la dificultad llama a determinado método
+        /// </summary>
+        /// <param name="difficulty">Dificultad</param>
+        /// <param name="botones">Lista de botones</param>
+        /// <param name="contador">Contador</param>
+        /// <param name="minas">Cantidad de minas</param>
+        /// <returns>Devuelve la cantidad de minas</returns>
         private static int cuentaMinas(string difficulty, List<Button> botones, int contador, int minas)
         {
             switch (difficulty)
@@ -262,6 +278,13 @@ namespace Buscaminas
 
         }
 
+        /// <summary>
+        /// Serie de estructuras de control que evalúan el puntaje de las casillas campo con respecto a las minas colindantes
+        /// </summary>
+        /// <param name="botones">Lista de botones</param>
+        /// <param name="contador">Contador</param>
+        /// <param name="minas">Cantidad de minas</param>
+        /// <returns>Devuelve la cantidad de minas</returns>
         private static int contarMinasDifícil(List<Button> botones, int contador, int minas)
         {
             if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 19 && contador != 38 && contador != 57 && contador != 76 && contador != 95 && contador != 114
@@ -312,6 +335,13 @@ namespace Buscaminas
             return minas;
         }
 
+        /// <summary>
+        /// Serie de estructuras de control que evalúan el puntaje de las casillas campo con respecto a las minas colindantes
+        /// </summary>
+        /// <param name="botones">Lista de botones</param>
+        /// <param name="contador">Contador</param>
+        /// <param name="minas">Cantidad de minas</param>
+        /// <returns>Devuelve la cantidad de minas</returns>
         private static int contarMinasMedio(List<Button> botones, int contador, int minas)
         {
             if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 16 && contador != 32 && contador != 48 && contador != 64 && contador != 80 && contador != 96
@@ -362,6 +392,13 @@ namespace Buscaminas
             return minas;
         }
 
+        /// <summary>
+        /// Serie de estructuras de control que evalúan el puntaje de las casillas campo con respecto a las minas colindantes
+        /// </summary>
+        /// <param name="botones">Lista de botones</param>
+        /// <param name="contador">Contador</param>
+        /// <param name="minas">Cantidad de minas</param>
+        /// <returns>Devuelve la cantidad de minas</returns>
         private static int contarMinasFacil(List<Button> botones, int contador, int minas)
         {
             if (contador > 0 && botones[contador - 1].Name.Contains("Mine") && (contador != 13 && contador != 26 && contador != 39 && contador != 52 && contador != 65 && contador != 78
@@ -406,6 +443,10 @@ namespace Buscaminas
             return minas;
         }
 
+        /// <summary>
+        /// Click a una casilla campo: Si no se han seleccionado la bandera o el interrogante aumentará el contador de casillas campo y se mostrarán cuantas minas hay cerca
+        /// Si se han descubierto todas las casillas campo se gana el juego, el temporizador para y se guarda, y se abre el formulario del ranking para registrar el tiempo con la dificultad
+        /// </summary>
         private void field_Click(object sender, EventArgs e)
         {
             Button field = (Button)sender;
@@ -425,7 +466,7 @@ namespace Buscaminas
                 switch (difficulty)
                 {
                     case "Modo fácil":
-                        if (fieldCounter == ((13 * 13) - 30 - 1 + easyLives))
+                        if (fieldCounter == (139))
                         {
                             timer1.Stop();
                             MessageBox.Show("Felicidades has ganado");
@@ -435,7 +476,7 @@ namespace Buscaminas
                         }
                         break;
                     case "Modo intermedio":
-                        if (fieldCounter == ((16 * 16) - 45 - 1 + mediumLives))
+                        if (fieldCounter == (211))
                         {
                             timer1.Stop();
                             MessageBox.Show("Felicidades has ganado");
@@ -445,7 +486,7 @@ namespace Buscaminas
                         }
                         break;
                     case "Modo difícil":
-                        if (fieldCounter == ((19 * 19) - 60 - 1 + hardLives))
+                        if (fieldCounter == (301))
                         {
                             timer1.Stop();
                             MessageBox.Show("Felicidades has ganado");
@@ -483,7 +524,7 @@ namespace Buscaminas
                             lblLives.Text = $"VIDAS: {easyLives}";
                             timer1.Stop();
                             MessageBox.Show("¡Boom!, has perdido... Fin del juego");
-                            Close();
+                            //Close();
                         }
                         lblLives.Text = $"VIDAS: {easyLives}";
                         break;
@@ -546,7 +587,9 @@ namespace Buscaminas
             else
             {
                 btnFlag.Tag = "yes";
+                btnFlag.BackColor = Color.Blue;
                 btnQuestion.Tag = "no";
+                btnQuestion.BackColor = Color.White;
             }
 
         }
@@ -560,7 +603,9 @@ namespace Buscaminas
             else
             {
                 btnQuestion.Tag = "yes";
+                btnQuestion.BackColor = Color.Blue;
                 btnFlag.Tag = "no";
+                btnFlag.BackColor = Color.White;
             }
         }
     }

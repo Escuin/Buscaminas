@@ -7,6 +7,9 @@ namespace Buscaminas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Botón de jugar: inicia la partida tras haber elegido una dificultad
+        /// </summary>
         private void btnPlay_Click(object sender, EventArgs e)
         {
             switch (cboDifficulty.Text)
@@ -29,6 +32,9 @@ namespace Buscaminas
             };
         }
 
+        /// <summary>
+        /// Botón de salir: cierra el juego tras un mensaje de confirmación
+        /// </summary>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("¿Estás seguro de querer cerrar el juego?", "Cerrar juego", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -38,6 +44,9 @@ namespace Buscaminas
             }
         }
 
+        /// <summary>
+        /// Combo box de dificultad: despliega las dificultades y cambia el color del título según la elección
+        /// </summary>
         private void cboDifficulty_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cboDifficulty.Text)
@@ -56,6 +65,9 @@ namespace Buscaminas
             };
         }
 
+        /// <summary>
+        /// Botón de ranking: abre un formulario que se conecta a la base de datos y muestra los tiempos registrados y su dificultad
+        /// </summary>
         private void btnRanking_Click(object sender, EventArgs e)
         {
             var frm = new FormRanking();
