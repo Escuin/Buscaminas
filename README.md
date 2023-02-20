@@ -1,6 +1,6 @@
 # Buscaminas
 
-Simple game of minesweeper
+Simple game of minesweeper.
 
 ## Description
 
